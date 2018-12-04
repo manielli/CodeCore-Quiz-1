@@ -8,7 +8,7 @@ const path = require("path");
 const express = require("express");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
-// const methodOverride = require ("method-override");
+const methodOverride = require ("method-override");
 
 // Configuring and building the app.js
 
@@ -28,12 +28,14 @@ app.use(express.static(path.join(__dirname, "public")));
 // URL Encoded
 app.use(express.urlencoded({extended: true}));
 
-// app.use((request, response) => {
-//     if (request.body && request.body._method) {
-//         const method = request.body._method;
-//         return method;
-//     }
-// });
+app.use(
+    methodOverride((request, response) => {
+      if (request.body && request.body._method) {
+        const method = request.body._method;
+        return method;
+      }
+    })
+  );
 
 //  Cookie Parser
 app.use(cookieParser());

@@ -1,5 +1,37 @@
 <%- include("./partials/header")%>
 
+<div class="card mb-4">
+  <% if (post.imageUrl) { %>
+    <img
+      class="card-img-top"
+      src="<%= post.imageUrl %>"
+      alt="Card Image"
+    >
+  <% } %>
+  <div class="card-body">
+    <p class="card-text">
+      <%= post.content %> <br>
+      <em>Posted at <%= new Date(post.created_at).toLocaleString() %></em>
+    </p>
 
+    <div class="d-flex">
+      <a
+        class="btn btn-outline-success mr-2"
+        href="/posts/<%= post.id %>/edit"
+      >
+        Edit
+      </a>
+
+      <form action="/posts/<%= post.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input
+          type="submit"
+          class="btn btn-outline-dark text-light"
+          value="Delete"
+        >
+      </form>
+    </div>
+  </div>
+</div>
 
 <%- include("./partials/footer")%>

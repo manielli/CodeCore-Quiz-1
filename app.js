@@ -68,7 +68,7 @@ app.use("/posts", postsRouter);
 //  Run Server
 //  ----------
 
-const PORT = 3535;
+const PORT = 3737;
 const HOST = "localhost";
 app.listen(PORT, HOST, () => {
 

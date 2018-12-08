@@ -1,0 +1,35 @@
+{
+  "name": "codecore-quiz-1-cluckr-app",
+  "version": "1.0.0",
+  "description": "Cluckr is a Twitter express and bootstrap clone",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "db:drop": "dropdb --if-exists --echo knexpress_lab",
+    "db:create": "createdb --echo knexpress_lab",
+    "db:migrate": "knex migrate:latest",
+    "db:reset": "npm run dp:drop && npm run db:create && npm run db:migrate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manielli/CodeCore-Quiz-1.git"
+  },
+  "author": "Mani Jafari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manielli/CodeCore-Quiz-1/issues"
+  },
+  "homepage": "https://github.com/manielli/CodeCore-Quiz-1#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.7.1"
+  }
+}
